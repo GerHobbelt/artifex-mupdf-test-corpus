@@ -1,0 +1,6 @@
+# these are tests that are known to produce errors in the commit/nightly/weekly regression tests
+# they are listed here to prevent them from being reported and obscuring new issues
+
+# no files in this repository cause an error, an example entry:
+# tests__pdf__singular_ctm_3_tr_mode.pdf.ps.ppmraw.72.0
+

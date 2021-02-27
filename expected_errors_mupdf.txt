@@ -1,0 +1,16 @@
+# these are tests that are known to produce errors in the commit/nightly/weekly regression tests when running mupdf
+# they are listed here to prevent them from being reported and obscuring new issues
+
+# no files in this repository cause an error, an example entry:
+# tests__pdf__singular_ctm_3_tr_mode.pdf.ps.ppmraw.72.0
+
+tests__pdf__j2kp4-file3-ycc-8bpc.pdf.pam.300.0
+tests__pdf__j2kp4-file3-ycc-8bpc.pdf.pbmraw.300.0
+tests__pdf__j2kp4-file3-ycc-8bpc.pdf.pgmraw.300.0
+tests__pdf__j2kp4-file3-ycc-8bpc.pdf.pgmraw.300.1
+tests__pdf__j2kp4-file3-ycc-8bpc.pdf.pgmraw.72.0
+tests__pdf__j2kp4-file3-ycc-8bpc.pdf.pkmraw.300.0
+tests__pdf__j2kp4-file3-ycc-8bpc.pdf.png.300.0
+tests__pdf__j2kp4-file3-ycc-8bpc.pdf.ppmraw.300.0
+tests__pdf__j2kp4-file3-ycc-8bpc.pdf.ppmraw.300.1
+tests__pdf__j2kp4-file3-ycc-8bpc.pdf.ppmraw.72.0

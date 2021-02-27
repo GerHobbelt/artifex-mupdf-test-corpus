@@ -1,0 +1,37 @@
+%!PS-Adobe-2.0 EPSF-2.0
+%%BoundingBox: 0 0 250 250
+%
+% Test the image with large strings as multiple data sources.
+% In this case Ghostscript passes multi-line buffers to the output device
+% where they may be handled incorrectly. pswrite and epswrite did so
+% prior to the rev. 8233.
+% 
+% Fixed: 8233
+% Bug: 688200
+% Flags: ps-interpreter pswrite epswrite low-res
+%
+%%EndComments
+
+/s1 62500 string def
+/s2 62500 string def
+/s3 62500 string def
+/s4 62500 string def
+
+0   251 62499 { //s1 exch 255 put } bind for
+249 249 62499 { //s1 exch 255 put } bind for
+s1 s2 copy
+s1 s3 copy
+s1 s4 copy
+
+/DeviceCMYK setcolorspace
+<< /ImageType 1
+   /MultipleDataSources true
+   /DataSource [ //s2 //s2 //s3 //s4 ]
+   /Decode [0 1 0 1 0 1 0 1]
+   /BitsPerComponent 8
+   /Height 250
+   /Width  250
+   /ImageMatrix [1 0 0 1 0 0]
+>> image
+showpage
+%%EOF

@@ -1,0 +1,157 @@
+%!PS-Adobe-3.0
+% The file tests Type 3 masked image with separate data sources of different
+% types. Prior to rev. 10246, Ghostscript was unable to process this.
+% Thanks to Paul Walker for the test case. Also see bug 688386, 690850.
+%%Title: testthumb.jpg
+%%Creator: jpeg2ps version 1.15
+%%CreationDate: Fri Apr 22 08:46:14 2005
+%%BoundingBox: 162 288 450 504
+%%LanguageLevel: 3
+%%EndComments
+
+% Create a dictionary with space for 80 elements
+80 dict begin
+/PageSize 2 array def
+/setpagesize {
+   PageSize aload pop
+   3 index eq exch 4 index eq and
+   { pop pop pop}
+   {
+      PageSize dup  1 5 -1 roll put 0 4 -1 roll put dup where
+      { exch get exec}
+      {
+         pop /setpagedevice where
+         { pop 1 dict dup /PageSize PageSize put setpagedevice}
+         {
+            /setpage where
+            { pop PageSize aload pop pageparams 3 {exch pop} repeat setpage} if
+         }
+         ifelse
+      }
+      ifelse
+   }
+   ifelse
+} bind def
+%%EndProlog
+%%Page: 1 1
+%%BeginPageSetup
+612 792 /letter setpagesize
+save
+%%EndPageSetup
+gsave mark
+
+% Set to gray device space
+/DeviceGray setcolorspace
+
+% Define the dictionary for the mask image
+/MaskDict <<
+/ImageType 1
+/Width 8
+/Height 8
+/BitsPerComponent 1
+/ImageMatrix [0.555556 20 div 0 0 -0.555556 15 div 0 8 ]  % matrix
+/Decode [0 1]
+/DataSource <a501020304050607>
+>> def
+
+% Go ahead and print the mask image
+162 288 translate
+MaskDict image
+
+% Change to RGB colorspace
+/DeviceRGB setcolorspace
+
+% Define the dictionary for the basic image
+/ImageDict <<
+/ImageType 1
+/Width 160
+/Height 120
+/BitsPerComponent 8
+/ImageMatrix [0.555556 0 0 -0.555556 0 120 ]  % matrix
+/Decode [0 1 0 1 0 1]
+/DataSource currentfile /ASCII85Decode filter <<  >> /DCTDecode filter  % datasrc
+>> def
+
+% Create a dictionary for the intended image
+<<
+/ImageType 3
+/DataDict ImageDict
+/MaskDict MaskDict
+/InterleaveType 3
+/Width 160
+/Height 120
+/BitsPerComponent 8
+/ImageMatrix [0.555556 0 0 -0.555556 0 120 ]  % matrix
+/Decode [0 1 0 1 0 1]
+>>
+% Now print the image.
+image
+s4IA+ !/(=Y "pP>; "UPG> #RUkE $Omj^ %1EXS *"s%u (*O\C +s@pK +!`9l /0lSt -QX?] 
+4Y8BH 2``u\ +t>fF 4ubkb 2`Wbs #mgnH $4IUW $ks3Z $47:^ )@?fi )G_7i )B'Mi :JXb^ 
+:JXb^ :JXb^ :JXb^ :JXb^ :JXb^ :JXb^ :JXb^ :JXb^ s1eUH #QT)L TE>3< !!3`5 !tbS6 
+_uZS4 !!*6( !<E3% !<<*" z     !!*-' "9eu7 #RLhG &-)b4 !s8T- !sJi2 "98E& I/sBO 
+!!El; &g8tq "qsjB #9n.% 14bR] #U;[@ _%fkq n0Bf! Ee4T) ()If* )C6^X -n-W& 2)[BQ 
+3BBMq 77Kd< 8P2o\ <E<1' =^#<G AS,Rg Bkh^2 F`qtR H$Y*r KnbA= M2II[ Pa.Q$ R$jD; 
+USO`` Vl6Sp ZEppG [^WcW ]#)A' `Q#s> ai`&\ eCE.% f\,!; ioB+] k3(sm lLFH: o_%qP 
+q"aae !!<6& !<E3% !<E3$ z     !!*-' "9eu7 #RLhG &HDk5 !X&W. ":#)5 "98H( G5qXF 
+!tbY> +Ya06 5u@kq E>'NO JHurV OeK%r #pV6( n.fDQ d0^X7 1uTbN (Dn#. -7:2j .Q'+C 
+3&s#e 6q'R8 84cEP <)lt# =BSg; A7]@c BPD4& FEMbN G^4Ue K7nr5 LPUeE P*;,q QC!u, 
+R\HRQ V5C/h WN*81 ['d?O \@K2f _o0O6 a2lBF daQ^r f%8R- g>_/R jlYai l0@j2 o_%qP 
+q"add g&MN` !<<05 !tbMt !9l-n L=C&c \%A$7 ;D-Ns 0p,S" r%HEk PBP'o \!TTQ loQ+d 
+IL4B& ?![t( +R@*\ )'eZ/ Wg\@9 IFo5( UR@.\ _B`L" MEZWY 'S\Hn %0/67 ArmF1 #>t^p 
+A7&/^ PQ6Bt cmaM' .R?`p MKJn5 ZiOX& 1kmVs 1IqX( +?Zn+ l)%>4 -h*c5 1lQ`( r(\^s 
+AH)X? I^B*p h;.Tt ]>UTX .*nT% !(#_< ;02./ 0'jPm ,(L;j ;ZXb, -kPoA 5RJnr ^luu` 
+d/a$3 1?Y\= oG&Se Bg#b% )5ajO ?.6t8 %p:"P BEL<U `S)W* q=!;& Z5qiF Z>TXg kj[Y" 
+QP5tF ;Zl\L MG\2` Aaq*A 93AU/ L;dV^ BiPPI jFBud @_52D K9<jH M5qK) b2VY" Q7K:' 
+9,o!K C6$u0 7K<cY Ki6QY \[)P= H`,;K 54q]L L5KqT ciK)( J``>T MK#3l UnA29 oA[,M 
+rr=*d Hb[4r (\ATH Mk>j; `7Y_R &:_:% rcKQF *R'GV (Me5E lSTQq 4d!2Q !%Q-S Bd[rl 
+aNhi< *1@7, /V&J7 C,*g+ ;CKo] l.b2\ 4QdgN 1&h7; 6G:BL $S,kp 1sqif 7kN_+ :<qS] 
+1G-gD npc#C Z&ab. &:BN/ TCu@a C6M4, ni"V) iA$S4 WrrD& 3kK!s *\G&s 1><Xl @\LtD 
+78LIh C#_1F MjRWX Wgnt! [F_K4 E"_+q oPQma 2'qHZ K3i6< <`^7p +OZK! O\C:( :D<f9 
+;ZjfG ]bp]_ :4R0J Une*F O?1bU bld/n dH$&M )3OWW E58't 3Nf[R >e&9/ @jTmP Um$E. 
+IT8"+ 2C[+` ]<:9; Z^D^f l'eLN -tuqe >h"Yk &W2\s hb)kN @H*lV *U(!K D=nj+ 5%1#B 
+*eCj! X%EmA ?!@ir 1.heM _>PeF jo5<) >qU&% k>.ad 6X-p3 `%;bU gOaL< 3f;K' XBjBR 
+SC3HK [e:%W P'@!F "4YbO gD#Xd DNqqU Bab^= U!M/P L)6&u !1IHG JC"_S [ele] ?`=8i 
+orKIO 4!Cp% 1iB_9 ZEjeD JjiP, ZK0O^ nX:!% UtVHV It]@O >h/Y= 1Tt0= ]3.4Y %idh= 
+%ZPE& Jc>_U e&RKN Z2XeH BLgIj rr<^9 rE]F' 2rJ-; V>S)b ,'`P% (i:0U Y4;Ml `7:>a 
+'O"k, '2+?J GKsr9 8l1NC YAYXX <MNGa 4LW"m <dC-* gjg(S iC@X> 5qHdd kGd(U QJ*CR 
+i?[1: ]0ZG< 5H1cY ?#ePD *`Z!q rr@n6 78YGY jj[q3 CX*aC T</k\ bqCgs E`e#4 k+n+G 
+5^Lmo `,dpP 71!7r `uV.3 )`[)G 9;-A# ^-p>^ ,H6lj Rc]q) eF/10 ]a-K@ 9&D'o &'?RC 
+A:@M" n((]> ^/TqK A%k5V $p?N/ MWhtB 9mRcr YN!;D B7SiO aW+sB .Ono5 ,hln= LP*YT 
+5G`1( C"gOA SaU>% ./jjW hnFQ( ^18gq `%Br. 'J%7` &.do< .f9h( f+.f\ Goor> LGEAs 
+qU.c% nu`/$ lnd0S 2E'b7 A,_ku >+jJV fm4]- r[7!J MI`>A ZkDdg \rU$\ g<!og 6^,bp 
+aQdV. Ug$<Y `X@*a C8+1l Af0O5 D6mc9 &okC! VF=?\ qle#= C`?%. 9,IH+ ;p^Y/ 96]ZF 
+;tsFe \ql2R bfI_V isgmE Vb]O, c3GAW F&u#* a%!.? M"XGZ R7Xm< %j0J8 o%--: Z!Mo` 
+E*Y,7 7/(*c @=Q;( rU9J` L[H8U ToC[s )rYZe \3/kC psf"3 "IDa- aWoi, S78@5 I'2^9 
+dYaj_ \Ql>e 6Uec@ dm:dP <-fpn k_nQd enaLO &,^NM J2Puf 4EnF1 (Go`k Nu>O; MW.a^ 
+,$'ml ]hl?P `f]V8 ]?h]? P]?KJ 3EtnT )u\m> K]&)c <I!GS f!B@S K1gWP (RWC. ndhj8 
+/lc!a mi&_& -h2S@ +QY=R >jae@ N43G: 5Cj-B S@i0_ 0j4AU 2r.9F !F!kF &]oq0 ,9?JV 
+_=GW1 eKW_> q;`(a !k(,U 8tnCe R4OKH @).Yg _dhs3 `u'UH cI#Kj i-pEj J)[Y1 7%>tY 
+S"7KD <t[Z> HNfj` G-NFh <"IEY "'p\@ .&ERI 0aHic _W7Zr K%U5` "k:`X aqc61 #Qm$d 
+KBN?; ,8SI> ,<0En h-HsZ #cP6? :,D?8 *bNZ2 b@P*0 E4]'1 N[lpp R6<?* [N!bj pAO8O 
+N%5eD 7r9o1 %_f<= m)3@0 fM$G, 7/B?t ^euAs Wsf$< gTNJ6 l:*L" R9-(2 c,je? )HH#$ 
+!1./E .X9D1 5gS+* n.hk/ M1`]A Z"aXS Q8na] lF8hu 4Glcn Gujm8 87[[) GQl\: kt7c# 
+K141_ .+Ctn '.7TT #Gj#b Hfd]u K"tG; 4U-6A ?Z8tp f4!_Q 7P[!$ [g.ef ZpO&& e9CXA 
+#$>*P %`OIU cf`lH OO#b] EFR.; ,l[j* Mhnf` Zpijt WZ64h K!V@( %"g): p,&6k 3YBJS 
+A,n%R C'P"Y mHR6e )h4!G <SdK\ K]SS" qQR'! \_0X7 1guA9 .hkH7 8)@'W A@Gj@ N,eCO 
+K!J9f h8MNn 9e7Dj Q<g!_ ^d4+3 TC_;8 !S5s` hG6m* &5O<\ o04F8 ]/&3P PAWr> 4[*Ar 
+lVZPW %%rgA \b)T< lXV9K h3lKT ?7L@Y '&&&F j!;^\ c@u+T ><bL* j5FuU B"H;6 Ek,M@ 
+dbN<c QL$+C 7W'fQ )^A(q p/-uf ]XjW& []5#` J^=/k <M&<K D_eBL LL6Q. O.PaX 5p>&- 
+C]I&$ en(e\ CUtDj 5>tVM oUDnD o#+O( G2f(Z ;#?4j >6533 nSu`# k\:12 IE/I" -['U\ 
+Id)%/ K17ZG 'lkQO f8o?l >0Enm d'4u@ A!!:o %7'tG $p\<e TqY70 Yo!g< ,J@(, S1,N% 
+C9=.p jsQa? KulN1 Xm,R8 _g)Z` Wj4Tl 0q=k^ =1>-h YP0*p +GtE[ i8f"q "L\`O Tucu2 
+h9R@H iK3#L #+/Ts ,k4D9 &,SbG 2CiWC f)loe e9S#d nM]t* Z!uG( k3)mU 9RZG^ >.4DK 
+@tShN )?(?5 oq^\f :c.S3 gNuU2 U/9b( 4IWQ2 541SQ B%Y-@ o!ok_ ensQ+ 'ZaJ5 q/?5\ 
+d+#A[ /m%kC .r?2E (u0dP %-"E! ,!sEh 82,'D XK=#> FaI57 -2u)5 'VpIW F>sta A#)o^ 
+msZ(J $@__d L!I<2 '8p^d 5a691 b&mSs L8SbJ 6s.1n Yi$qM 2-4tR ,1ZEW Fd@l( 2E\h: 
+VgS18 X+&5b \$I$9 1?8/a P<rPK W`6]j DQMNt ea@77 m\Dpo \p5%< =Ep,\ e-h!$ S()Hf 
+D$erd F%SCA DG-tp >'5P. RrKp> _^__/ Do0") =2Zo[ DT`mf @/g4u C3ohQ G#OCn qi3_D 
+[YoU4 1Mbsk ?O#XY )ZKe[ Gr;^@ UKKk" &VjfN q5uY/ a(_7m +9S,E @8H\o 3drq1 !/o/J 
+5=u>o 4>/n* L.\\3 0M`B> +EOc, lU?Ed MXi7[ JA-W2 1.dK[ eAaXE +?A-d V+?Li TXhj$ 
+.GP1, RR>@( 1.X=m le78J <8)np ^Qeg9 (s1*Q .T-Jj lr&'U ntt5g OP:9o OMphc moN+1 
+aX=E, FX5uO f'-jV bRCXX B4BcS 4H]#2 87:'T MY-8$ MaP_N Dc`pI Zst+i gRMXP ?;^!N 
+%-,); .#k&* jTNu@ &uCHM fO&Bt YUZRg aeHR2 L/^X8 AC;;\ !$6Q& JG"UZ !N3#I PV.C' 
+!uiG? qZ]6l 1cQ)" lTc3d (s&`+ Y\#,n !*1^B "Ak#k +Snt; &;jQ' l>3N4 &r/UL !1_Mr 
+ZbKs[ Y-$*= F'G$( pO`qR icm;G as:o; On@sG S0Xu7 \t30b i7`T? TE!R ~>
+cleartomark end restore showpage
+

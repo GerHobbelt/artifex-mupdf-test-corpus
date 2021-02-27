@@ -1,0 +1,28 @@
+%!
+%
+% Exercising imagemask with a pattern color.
+%
+% This should look like a striped bar but
+% prior to the rev. 8659 looked as a big solid rectangle.
+% Bug 689210.
+
+[100 0 0 30 100 350] concat
+
+<< /PatternType 1 /TilingType 1
+   /XStep 251 /YStep 62
+   /PaintProc {pop 1 0 0 setrgbcolor 0 0 1000 1000 rectfill } bind
+   /BBox [0 0 251 62]
+   /PaintType 1
+>> matrix makepattern setpattern
+
+<<
+/ImageType 1
+/Width 251
+/Height 62
+/ImageMatrix [251.0 0.0 0.0 -62.0 0.0 62.0] 
+/BitsPerComponent 1
+/Decode [0.0 1.0 ] 
+/DataSource <00FF>
+>>
+imagemask
+showpage

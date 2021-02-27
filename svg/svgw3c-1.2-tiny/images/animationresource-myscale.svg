@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg version="1.2" xmlns="http://www.w3.org/2000/svg">
+  <g id="myScale">
+		<line x1="0" y1="0" x2="100" y2="0" stroke="black" stroke-width="3"/>
+		<g text-anchor="middle" transform="translate(0,10)" font-size="8">
+			<text x="0">0</text>
+			<text x="20">2</text>
+			<text x="40">4</text>
+			<text x="60">6</text>
+			<text x="80">8</text>
+			<text x="100">10</text>
+		</g>
+	</g>
+</svg>

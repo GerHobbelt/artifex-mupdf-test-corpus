@@ -1,0 +1,20 @@
+0 1 8 {
+  gsave
+  % stack = cap join
+  dup dup 3 idiv setlinejoin 3 mod setlinecap
+  50 mul
+  100 add
+  30 exch
+  translate
+  0 0 moveto 15 15 lineto 45 15 lineto
+  30 setlinewidth stroke
+  100 15 moveto 130 15 lineto 145 0 lineto
+  30 setlinewidth stroke
+  345 15 moveto 315 15 lineto 300 0 lineto
+  30 setlinewidth stroke
+  445 0 moveto 430 15 lineto 400 15 lineto
+  30 setlinewidth stroke
+  grestore
+} for
+
+showpage

@@ -1,0 +1,22 @@
+%!
+% Test a font with a preserved FID that has been both scaled and copied.
+% Prior to rev. 8175 Ghostscript mis-recognized such fonts as scaled-only
+% and reported /invalidfont during font validation.
+% 
+% Fixed: 8175
+% Bug: 689390
+% Flags: ps-interpreter
+
+/MyHelv
+   /Helvetica findfont .7 scalefont
+
+   dup length dict begin
+   {def} forall
+   currentdict end
+   definefont
+   pop
+
+/MyHelv 40 selectfont
+100 500 moveto
+(Analysis of Data) show
+showpage

@@ -1,0 +1,31 @@
+%!
+% Uncolored pattern example from the Red Book.
+%
+1.3 dup scale
+
+<< /PatternType 1 % Tiling pattern
+   /PaintType 2 % Uncolored
+   /TilingType 1
+   /BBox [-12 -12 12 12]
+   /XStep 30
+   /YStep 30
+   /PaintProc
+     { pop % Pop pattern dictionary
+       0 12 moveto
+       4 { 144 rotate 0 12 lineto } repeat
+       closepath
+       fill
+     } bind
+>> % End prototype pattern dictionary
+matrix % Identity matrix
+makepattern % Instantiate the pattern
+
+/Star exch def
+140 110 170 100 4 copy % Two copies of rectangle operands
+0.9 setgray rectfill % Fill rectangle with gray
+[/Pattern /DeviceGray] setcolorspace
+1.0 Star setcolor rectfill % Fill rectangle with white stars
+225 185 60 0 360 arc % Build circular path
+0.0 Star setpattern gsave fill grestore % Fill circle with black stars
+0.0 setgray stroke % Stroke black outline
+showpage

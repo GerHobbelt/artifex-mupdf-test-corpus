@@ -1,0 +1,29 @@
+# this file specifies additional tests to be run by the cluster regression system
+ 
+# the format consists of two columns separated by a tab:
+#   column 1 : the output filename
+#   column 2 : the ghostscript/ghostpcl/ghostxps command line
+# (the output filename is not included in the command line since it varies between normal cluster and bmpcmp runs).
+# the execution of the command line occurs from a directory that has tests_private and tests as subdirectories, so specify
+# the input file path accordingly.
+
+# the output filename is what is reported when a difference is found, so it's a good idea to make it informative.
+# as a guide the standard tests use the format "directory__filename.output device.resolution.banding(0/1)" 
+# note taht slashes within the directory are replaced with __ and spaces are not allowed.
+
+# a custom_tests.lst file can appear in any of the directories that are normally included in cluster tests.  what directory
+# the file appears in determines which executable is tested.  recommended directories are:
+#  gs  - tests_private/comparefiles or tests/ps or tests/pdf
+#  pcl - tests_private/customer_tests or tests/pcl
+#  xps - tests_private/xps
+
+# any standard device can be specified, however only those that are readable by bmpcmp.c can be used with bmpcmp,
+# this is currently ppmraw/pgmraw/pbmraw/pkmraw/pam/cups/pnggray/png16m/psdcmyk/psdrgb and non-cmyk bmp.
+
+# all of the tiff devices include the current date/time in the file, resulting in a different md5sum for every run,
+# so don't add any commands with those :-)
+
+# testing double conversions (i.e. from ps to pdf to ppm) is not currently supported.
+
+
+tests__Ghent_V3.0__110_default_colourspace_x3__NOSUBSTDEVICECOLORS.pdf.pkmraw.72.1	-sDEVICE=pkmraw -r72 -dNOSUBSTDEVICECOLORS ./tests/Ghent_V3.0/110_defaultcolourspace_x3.pdf
